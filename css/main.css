@@ -1,3 +1,13 @@
+body {
+  margin: 0;
+}
+
+.vis-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
 a:hover {
   color: #fff;
   text-decoration: none;
@@ -8,29 +18,32 @@ a {
 }
 
 .vert-center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
+  color: #fff;
+  font-family: sans-serif;
+  margin: 5px;
 }
 
 .welcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   position: absolute;
-  top: calc(50vh - 100px);
-  left: calc(50vw - 100px);
+  top: calc(50vh - 108px);
+  left: calc(50vw - 108px);
   height: 200px;
   width: 200px;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.7);
   border-radius: 50%;
-  border: 8px solid #fff;
+  border: 8px solid #ef32ff;
+  box-shadow: 0 0 30px #ef32ff;
+  text-align: center;
 
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
 .welcome:hover {
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0,0.9);
   color: #fff;
 }
