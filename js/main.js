@@ -13,10 +13,11 @@ var counterWidth = 0;
 var counterWidth2 = 0;
 var counterWidth3 = 0;
 var lineWeight = 15;
+var touched = false;
 
 function draw() {
   background(0, 0, 0, 2);
-  var col = map(counterHeight, 0, lineWeight, 0, 255)
+  var col = map(counterHeight, 0, lineWeight, 0, 255);
 
   //Ellipse pattern
   // var radius = 30;
@@ -28,15 +29,17 @@ function draw() {
   // }
 
 
-  //Moing hor and vert lines
+  //Moving hor and vert lines
   noStroke();
-  strokeWeight(lineWeight)
+  strokeWeight(lineWeight);
   // if (counter > mouseY - 20 && counter < mouseY + 20 ||
   //   height - counter > mouseY - 20 && height - counter < mouseY + 20) {
-  if (mouseX != pmouseX) {
-    // stroke(random(0, 255), random(0, 255), random(0, 255));
+  if (mouseX != pmouseX && !touched) {
+    // stroke(random(0, 255), random(0, 255), random(0, 255), 10);
     stroke(0, 0, 0);
-  } else {
+  } else if (touched) {
+    stroke(random(0, 255), random(0, 255), random(0, 255), 50);
+  }else {
     stroke(col, col, col);
   }
 
@@ -92,10 +95,22 @@ function draw() {
   }
 }
 
+function touchStarted() {
+  touched = true;
+  // prevent default
+  return false;
+}
+
+function touchEnded() {
+  touched = false;
+  // prevent default
+  return false;
+}
+
 function windowResized() {
   var container = select('.vis-container');
   resizeCanvas(container.width, container.height);
 
   //FOR TESTING
-  console.log(container.width, container.height)
+  // console.log(container.width, container.height)
 }
